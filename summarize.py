@@ -94,7 +94,7 @@ if __name__ == "__main__":
     path = tmp.name + ".html"
     logger.info(f"Output file: {path}")
     temp_file = open(path, "a")
-    with open("index.html") as f:
+    with open("config/index.html") as f:
         temp_file.write(f.read())
 
     for video_id, transcript in get_transcripts():
