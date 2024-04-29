@@ -15,8 +15,9 @@ The AI models are running in groq cloud [here](https://console.groq.com/playgrou
 ## How to use
 
 1. Clone the repository
-2. Install the dependencies with `pip install -r requirements.txt`
-3. Run the script with `python summarize.py`
+2. Setup your google API and Groq account as explained above.
+3. Install the dependencies with `pip install -r requirements.txt`
+4. Run the script with `python summarize.py`
 
 By default the script will look for the past 24h. 
 
