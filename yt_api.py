@@ -53,7 +53,9 @@ def list_video_ids(days_backward: int = config.days_backward):
 
 
 def get_vido_transcript(video_id):
-    transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=["en", "fr"])
+    transcript = YouTubeTranscriptApi.get_transcript(
+        video_id, languages=config.languages
+    )
     return " ".join([line["text"] for line in transcript])
 
 
