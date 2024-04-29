@@ -1,0 +1,37 @@
+youtube_summary:
+  description: >
+    You need to provide a summary and generetae insights from the transcript of a youtube video.
+    Video transcript:
+    {video_transcript}
+  expected_output: >
+    A list of:
+    - SUMMARY: A short summary of the video in about 3 lines
+    - SENTIMENT: The sentiment of the video
+    - TOPICS: The main topics discussed in the video
+    - INSIGHTS: The top insights about what can be learned from the video
+    - CATEGORY: A categorization of the video as one word
+html_rendering:
+  description: >
+    Given the generated summary and insights from the youtube agent, you need to write the frontend code to display the summary and insights from a youtube video.
+    Video id: {video_id}
+  expected_output: >
+    You will only output an HTML template based on the given example.
+    Example:
+            <section class="video-summary">
+            <h1 id="video-title">`CATEGORY` - `TITLE`</h1>
+            <div class="video-container">
+                <iframe id="youtube-video" width="100%" height="400" frameborder="0" src="https://www.youtube.com/embed/`VIDEOID`" allowfullscreen></iframe>
+            </div>
+            <div class="summary-container">
+                <p id="video-sentiment">`SENTIMENT`</p>
+                <p id="video-topics">`TOPICS`</p>
+                <h2>Summary</h2>
+                <p id="video-summary">`SUMMARY`</p>
+                <h2>Top Insights</h2>
+                <ul id="insights-list">
+                    `INSIGHTS`
+                </ul>
+            </div>
+        </section>
+
+      You will replace the `` placeholders with the actual values.
