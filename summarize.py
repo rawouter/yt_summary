@@ -5,7 +5,7 @@ from langchain_groq import ChatGroq
 import groq
 from loguru import logger
 from yt_api import list_video_ids, get_vido_transcript
-from youtube_transcript_api._errors import TranscriptsDisabled
+from youtube_transcript_api._errors import TranscriptsDisabled, NoTranscriptFound
 import tempfile
 import webbrowser
 
@@ -24,6 +24,9 @@ def get_transcripts(max_len: int = config.max_transcript_len):
             res.append((video_id, get_vido_transcript(video_id)[:max_len]))
         except TranscriptsDisabled as e:
             logger.error(f"Transcripts are disabled for video {video_id}")
+            continue
+        except NoTranscriptFound as e:
+            logger.error(f"No transcript for video {video_id}")
             continue
     return res
 
